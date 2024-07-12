@@ -3,13 +3,14 @@
 
 
 class Products {
+    
     private $name;
     private $description;
     private $price;
     private $imgpath;
     private $employee_id;
 
-    public function __construct($name,$description,$price,$imgpath,$employee_id)
+    public function __construct( $name, $description, $price, $imgpath, $employee_id)
     {
         $this->name = $name;
         $this->description = $description;
@@ -35,7 +36,6 @@ class Products {
         $this->description = $description;
     }
 
-    
     public function getPrice() {
         return $this->price;
     }
