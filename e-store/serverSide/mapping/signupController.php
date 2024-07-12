@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     try{
-        /*проверяваме дали има потребител с такъв запис*/
+        
         $findrecord = $dbc->prepare("select * from customers where username = :username");
         $findrecord->bindParam(":username",$username1);
         $findrecord->execute();
@@ -23,11 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     }catch(PDOException $e)
     {
-        echo "nope";
+        echo $e;
         exit();
     }
     try{
-        /*създаваме нов запис*/
+    
         $insertdata = $dbc->prepare("insert into customers(name,username,email,password) values (:name, :username,:email,:password);");
         $insertdata->bindParam(":username",$username1);
         $insertdata->bindParam(":name",$name);
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }catch(PDOException $e)
     {
-        echo "nope";
+        echo $e;
         exit();
     }
     
