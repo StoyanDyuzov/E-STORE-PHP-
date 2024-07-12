@@ -4,12 +4,13 @@ require_once "/xampp/htdocs/e-store/serverSide/users/user.php";
 
 
 class Employee extends User{
+    
     private $serial_number;
     private $position;
 
-    public function __construct($id,$name,$email,$password,$serial_number,$role,$position)
+    public function __construct( $id, $name, $email, $password, $serial_number, $role, $position)
     {
-        parent::__construct($id,$name,$email,$password,$role);
+        parent::__construct( $id, $name, $email, $password, $role);
         $this->position = $position;
         $this->serial_number = $serial_number;
     }
@@ -18,14 +19,17 @@ class Employee extends User{
     {
         $this->position = $position;
     }
+    
     public function getPosition()
     {
         return $this->position;
     }
+    
     public function setSerial_number($serial_number)
     {
         $this->serial_number = $serial_number;
     }
+    
     public function getSerial_number()
     {
         return $this->serial_number;
